@@ -122,30 +122,53 @@ public class TestLoanClassTemplate {
 			// + to do A2 same as A1
 			// calculate the new month's interest based on myLoanAmount and
 			// myMonthlyInterestRate
+			interest = myLoanAmount * myMonthlyInterestRate;
+
 			// calculate the principal paid this month from myMonthlyPayment minus the new
 			// month's interest
+			principal = myMonthlyPayment - interest;
+
 			// calculate the new myLoanAmount after minus this month's principal, then minus
 			// extra payment
+			myLoanAmount -= (principal + extraPay);
+
 			// add the interest paid this month to totalInterest
+			totalInterest += interest;
+
 			// increment the month count
+			month++;
 
 		}
 		while (myLoanAmount >= myMonthlyPayment) {
-			// to do B2 same as B1
 			// calculate the new month's interest based on myLoanAmount and
 			// myMonthlyInterestRate
+			interest = myLoanAmount * myMonthlyInterestRate;
+
 			// calculate the principal paid this month from myMonthlyPayment minus the new
 			// month's interest
-			// calculate the new myLoanAmount after minus this month's principal
+			principal = myMonthlyPayment - interest;
+
+			// calculate the new myLoanAmount after minus this month's principal, then minus
+			// extra payment
+			myLoanAmount -= principal;
+
 			// add the interest paid this month to totalInterest
+			totalInterest += interest;
+
 			// increment the month count
+			month++;
 		}
 		if (myLoanAmount < myMonthlyPayment) {
 			// to do
 			// calculate the new month's interest based on myLoanAmount and
 			// myMonthlyInterestRate
+			interest = myLoanAmount * myMonthlyInterestRate;
+
 			// add the interest paid this month to totalInterest
+			totalInterest += interest;
+
 			// increment the month count
+			month++;
 		}
 		double interestSaved = l.getTotalInterest() - totalInterest;
 		System.out.printf(
